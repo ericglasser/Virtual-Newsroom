@@ -1,0 +1,17 @@
+<li>
+  <%= gravatar_for user, :size => 30 %>
+  <%= link_to user.name, user %>
+ 
+  <% if current_user.admin? %>
+  	<span class = "delete"><%= link_to "delete", user, :method => :delete, :confirm => "Are You Sure?",
+                                :title => "Delete #{user.name}" %></span>
+	<% if !user.active? %>
+	<span class = "approve"><%= link_to "approve", approve_user_path(user), :method => :put %></span>
+	<% end %>
+	
+	<% if !user.publication_id %>
+	<span class = "recruit"><%= link_to "recruit", recruit_user_path(user, @publication), :method => :put %></span>
+	<% end %>
+	
+  <% end %>
+</li>

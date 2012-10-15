@@ -1,0 +1,16 @@
+<tr>
+  <td class="micropost">
+    <p>Title: </p><span class="content"><%= story.name %></span>
+	<span class="content"><%= link_to "Full Story", story %></span>
+	<p>Description: </p><span class="content"><%= story.description %></span>
+    	<% if current_user.admin? %>
+		  	<span class = "delete"><%= link_to "delete", story, :method => :delete, :confirm => "Are You Sure?",
+		                                :title => "Delete #{story.name}" %></span>
+		<% end %>
+		
+		<% if current_user.admin? %>
+		<span class = "delete"><%= link_to "edit", edit_story_path(story) %></span>
+		<% end %>
+	
+  </td>
+</tr>

@@ -1,0 +1,36 @@
+<h1>Upload Picture</h1>
+<%= form_for(@picture , :url => {:action => 'create'},:html => {:multipart => true}) do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="onecolumn">
+	<div class="header">
+		<span></span>
+	</div>
+	<br class="clear"/>
+	<div class="content">
+		<br class="clear"/>
+		<h2>Picture Info</h2>
+		<br/>
+		<p>
+			<%= f.label :name %>
+			<br />
+			<%= f.text_field :name %>
+		</p>
+		<br/>
+		<p>
+			<%= f.label :description %>
+			<br />
+			<%= f.text_field :description %>
+		</p>
+		<br/>
+		<p>
+			<%= f.file_field(:image) %>
+			<%= hidden_field_tag("picture[album_id]",params[:album_id]) %>
+			<%= hidden_field_tag("picture[user_id]",current_user.id) %>
+		</p>
+		<br/>
+		<br/>
+		<p>
+			<%= f.submit "Upload Picture" %>
+		</p>
+	</div>
+	<% end %> <!-- End left column window -->

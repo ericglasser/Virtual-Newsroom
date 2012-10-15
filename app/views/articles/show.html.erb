@@ -1,0 +1,7 @@
+<h1><%= @article.name %></h1>
+<p><%= link_to "edit",edit_article_path(@article) %>&nbsp;<%= link_to "delete",article_path(@article), :method => :detele %></p>
+<h2>Description:</h2>
+<p><%= @article.description %></p>
+<h2>Content:</h2>
+<div><%= sanitize(@article.content) %></div>
+<%= link_to "Back to Story", @article.story %>

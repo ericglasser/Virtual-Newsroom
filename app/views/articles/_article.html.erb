@@ -1,0 +1,17 @@
+<tr>
+  <td class="micropost">
+	<%= image_tag("article.gif", :alt => "Sample App", :class => "round") %>
+    <p>Title: </p><span class="content"><%= article.name %></span>
+	<span class="content"><%= link_to "Full Article", article %></span>
+	<p>Content: </p><span class="content"><%= article.content %></span>
+    <% if current_user.admin? %>
+	  	<span class = "delete"><%= link_to "delete", article, :method => :delete, :confirm => "Are You Sure?",
+	                                :title => "Delete #{article.name}" %></span>
+	<% end %>
+	
+	<% if current_user.admin? %>
+	<span class = "delete"><%= link_to "edit", edit_article_path(article) %></span>
+	<% end %>
+	
+  </td>
+</tr>

@@ -1,0 +1,20 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html>
+	<head>
+		<%= csrf_meta_tag %> <title><%= @title %></title>
+		<%= render 'layouts/stylesheets' %>
+		<%= render 'layouts/javascripts' %>
+	</head>
+	<body>
+		<%= render 'layouts/header' %>
+		<%= render 'layouts/sidebar' %>
+		<div id="content">
+		<div class="inner">
+		<%= yield %>
+		</div>
+						<div id="footer">
+					&copy; Copyright 2010 by Virtual Newsroom
+				</div>
+		</div> 
+	</body>
+</html>

@@ -1,0 +1,118 @@
+<h1> <%= @story.name %> </h1>
+<p>
+	<%= @story.description %>
+</p>
+<%= link_to "New Article", :action => "new", :controller => "articles", :id => @story.id %> <!-- Begin one column window -->
+<div class="onecolumn">
+	<div class="header">
+		<span>Articles</span>
+	</div>
+	<br class="clear"/>
+	<div class="content">
+		<form id="form_data" name="form_data" action="" method="post">
+			<table class="data" width="100%" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th style="width:10px">
+						<input type="checkbox" id="check_all" name="check_all"/>
+						</th>
+						<th style="width:30%">Name</th>
+						<th style="width:20%">Description</th>
+						<th style="width:30%">Date</th>
+						<th style="width:15%">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @articles.each do |article| %>
+					<tr>
+						<td>
+						<input type="checkbox"/>
+						</td>
+						<td><%= link_to article.name,article_path(article) %></td>
+						<td><%= article.description %></a></td>
+						<td>Coming Soon..</td>
+						<td><%= link_to image_tag("icon_edit.png"), edit_article_path(article) %><%= link_to image_tag("icon_delete.png"), article, :method => :delete %></p></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<div id="chart_wrapper" class="chart_wrapper"></div>
+			<!-- End bar chart table-->
+		</form>
+		<!-- Begin pagination -->
+		<div class="pagination">
+			<a href="#">«</a>
+			<a href="#" class="active">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">»</a>
+		</div>
+		<!-- End pagination -->
+	</div>
+</div>
+<!-- End one column window -->
+<%= link_to "New Album", :action => "new", :controller => "albums", :id => @story.id %> <!-- Begin one column window -->
+<div class="onecolumn">
+	<div class="header">
+		<span>Albums</span>
+	</div>
+	<br class="clear"/>
+	<div class="content">
+		<form id="form_data" name="form_data" action="" method="post">
+			<table class="data" width="100%" cellpadding="0" cellspacing="0">
+				<thead>
+					<tr>
+						<th style="width:10px">
+						<input type="checkbox" id="check_all" name="check_all"/>
+						</th>
+						<th style="width:30%">Name</th>
+						<th style="width:20%">Description</th>
+						<th style="width:30%">Date</th>
+						<th style="width:15%">Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @albums.each do |album| %>
+					<tr>
+						<td>
+						<input type="checkbox"/>
+						</td>
+						<td><%= link_to album.name,album_path(album) %></td>
+						<td><%= album.description %></a></td>
+						<td>Coming Soon..</td>
+						<td><%= link_to image_tag("icon_edit.png"), edit_album_path(album) %><%= link_to image_tag("icon_delete.png"), album, :method => :delete %></p></td>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<div id="chart_wrapper" class="chart_wrapper"></div>
+			<!-- End bar chart table-->
+		</form>
+		<!-- Begin pagination -->
+		<div class="pagination">
+			<a href="#">«</a>
+			<a href="#" class="active">1</a>
+			<a href="#">2</a>
+			<a href="#">3</a>
+			<a href="#">4</a>
+			<a href="#">5</a>
+			<a href="#">6</a>
+			<a href="#">»</a>
+		</div>
+		<!-- End pagination -->
+	</div>
+</div>
+<!-- End one column window -->
+</td> <td class="sidebar round"><strong>Name</strong> <%= @story.name %>
+<br />
+<strong>URL</strong> <%= link_to story_path(@story), @story %> <strong>Articles</strong> <%= @story.articles.count %>
+<br>
+<strong>Add New Article</strong> <%= link_to "New", :action => "new", :controller => "articles", :id => @story.id %></br>
+<%= @story.id %>
+<br>
+<strong>Add New Photo Album</strong><%= link_to "New", :action => "new", :controller => "albums", :id => @story.id %></br> </td>
+</tr>
+</table> 

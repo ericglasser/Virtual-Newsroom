@@ -1,0 +1,15 @@
+
+	<div id="header"> 
+		<div id="logo"> 
+			<%= link_to logo, root_path %> 
+		</div> 
+		<div id="search"> 
+			<form action="dashboard.html" id="search_form" name="search_form" method="get"> 
+				<input type="text" id="q" name="q" title="Search" class="search noshadow"/> 
+			</form> 
+		</div> 
+		<div id="account_info"> 
+			<%= image_tag("icon_online.png") %>
+			Hello <%= link_to current_user.name, current_user %> <!--(<a href="">1 new message</a>)--> | <%= link_to "Settings", edit_user_path(current_user) %> | <%= link_to "Sign out", signout_path, :method => :delete %> 
+		</div> 
+	</div> 

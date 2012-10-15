@@ -1,0 +1,40 @@
+<h1>New Album</h1>
+<%= form_for @album do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="onecolumn">
+	<div class="header">
+		<span></span>
+	</div>
+	<br class="clear"/>
+	<div class="content">
+		<br class="clear"/>
+		<h2>Album Info</h2>
+		<br/>
+		<p>
+			<%= f.label :name %>
+			<br />
+			<%= f.text_field :name %>
+		</p>
+		<br/>
+		<p>
+			<%= f.label :description %>
+			<br />
+			<%= f.text_field :description %>
+		</p>
+		<br/>
+		<p>
+			<% if !@select == 1 %>
+			<%= f.hidden_field :story_id, :value => @story.id %>
+			<% end %>
+			<% if @select == 1 %>
+ 			<%= f.select("story_id", @stories.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}) %>
+ 			<% end %>	
+			<%= f.hidden_field :user_id, :value => current_user.id %>
+		</p>
+		<br/>
+		<br/>
+		<p>
+			<%= f.submit "Create Album" %>
+		</p>
+	</div>
+	<% end %> <!-- End left column window -->

@@ -1,0 +1,6 @@
+<% @pictures.each do |picture| %>
+<div>
+<p><%=  picture.name %></p>
+<p><%= image_tag picture.image_url(:thumb) if picture.image? %></p>
+</div>
+<% end %>

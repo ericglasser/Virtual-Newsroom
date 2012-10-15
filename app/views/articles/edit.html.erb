@@ -1,0 +1,37 @@
+<%= javascript_include_tag :ckeditor %>
+<h1>Update Article</h1>
+<%= form_for @article do |f| %>
+<%= render 'shared/error_messages', :object => f.object %>
+<div class="onecolumn">
+	<div class="header">
+		<span></span>
+	</div>
+	<br class="clear"/>
+	<div class="content">
+		<br class="clear"/>
+		<h2>Article Info</h2>
+		<br/>
+		<p>
+			<%= f.label :name %>
+			<br />
+			<%= f.text_field :name %>
+		</p>
+		<br/>
+		<p>
+			<%= f.label :description %>
+			<br />
+			<%= f.text_area :description %>
+		</p>
+		<br/>
+		<p>
+			<%= f.label :content %>
+			<br />
+			<%= f.cktext_area :content %>
+		</p>
+		<br/>
+		<br/>
+		<p>
+			<%= f.submit "Submit" %>
+		</p>
+	</div>
+	<% end %> <!-- End left column window -->
